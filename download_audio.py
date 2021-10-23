@@ -32,15 +32,16 @@ class LectureFichier:
 
     def dates_to_consider(self,dates):
         correspondance = []
-        ref_correspondance = "0574"
-        ref_date = "2021-09-30"
+        ref_correspondance = "0577"
+        ref_date = "2021-10-04"
         date_ref = ref_date.split("-")
         for item in dates:
             item = item.split("-")
             date1 = date(int(item[0]), int(item[1]), int(item[2]))
             date2 = date(int(date_ref[0]), int(date_ref[1]), int(date_ref[2]))
             diff = (date1 - date2).days
-            num_date = int(ref_correspondance) + diff -1
+            diff_semaine = int(diff / 7)  # pour enlever les dimanches sans dialogues
+            num_date = int(ref_correspondance) + diff - diff_semaine
             correspondance.append("0" + str(num_date))
         return correspondance
 
