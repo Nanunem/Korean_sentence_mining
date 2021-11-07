@@ -1,4 +1,3 @@
-
 from download_audio import LectureFichier, ChoixAction
 
 # Lecture du fichier semaine.txt définissant les dates à traiter
