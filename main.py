@@ -1,4 +1,5 @@
-from download_audio import LectureFichier, ChoixAction
+from download_audio import ChoixAction
+from lecturefichier import LectureFichier
 
 # Lecture du fichier semaine.txt définissant les dates à traiter
 fichier_dates = LectureFichier("semaine.txt")

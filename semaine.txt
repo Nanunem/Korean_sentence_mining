@@ -1,3 +1,7 @@
 # Date en format ANNEE-MOIS-JOUR   NOMBRE DE LIGNE DE DIALOGUE   TOUT/DIALOGUE/EXEMPLE
-2021-11-05                                6                               TOUT
-2021-11-06                                8                               TOUT
+2021-11-08                                8                               TOUT
+2021-11-09                                8                               TOUT
+2021-11-10                                8                               TOUT
+2021-11-11                                8                               TOUT
+2021-11-12                                8                               TOUT
+2021-11-13                                8                               TOUT
