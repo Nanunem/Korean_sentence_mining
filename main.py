@@ -1,4 +1,4 @@
-from download_audio import ChoixAction
+from download import Download
 from lecturefichier import LectureFichier
 
 # Lecture du fichier semaine.txt définissant les dates à traiter
@@ -14,5 +14,5 @@ print("Modifiez le fichier \"semaine.txt\" si d'autres dates sont à traitées")
 
 
 # Choix des téléchargements à effectuer
-action = ChoixAction(demande=choix)
+action = Download(demande=choix)
 action.download(nombre_dialogue, correspondance, dates)
