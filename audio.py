@@ -16,4 +16,3 @@ class Audio:
         mp3 = requests.get(url_mp3)
         with open(nom_sortie + ".mp3", 'wb') as Entree:
             Entree.write(mp3.content)
-        return

@@ -52,4 +52,3 @@ class Download:
             else:
                 print("Erreur, merci d'indiquer \"TOUT\", \"DIALogue\" ou \"EXEMple\"")
                 pass
-        return
