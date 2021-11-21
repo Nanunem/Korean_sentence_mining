@@ -16,9 +16,7 @@ class LectureFichier:
 
         with open(self.day_mining, "r") as Entree:
             for ligne in Entree:
-                if "#" in ligne :
-                    pass
-                else :
+                if "#" not in ligne :
                     ligne = ligne.strip()
                     ligne = ligne.split()
                     dates_demande.append(ligne[0].strip())
