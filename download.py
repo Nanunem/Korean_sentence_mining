@@ -29,7 +29,7 @@ class Download:
                     with open(f"exemple_{i}_{dates[num]}.txt", "w", encoding="utf-8") as fich_sortie:
                         fich_sortie.write(content['studys'][0]['translation'])
                         fich_sortie.write("\n")
-                        fich_sortie.write(content['studys'][0]['examples'][num]['example'])
+                        fich_sortie.write(content['studys'][0]['examples'][i-1]['example'])
 
             elif "DIAL" in item:
                 # Téléchargement des dialogues (tous les dialogues ou certaines phrases)
@@ -47,7 +47,7 @@ class Download:
                     with open(f"exemple_{i}_{dates[num]}.txt", "w", encoding="utf-8") as fich_sortie:
                         fich_sortie.write(content['studys'][0]['translation'])
                         fich_sortie.write("\n")
-                        fich_sortie.write(content['studys'][0]['examples'][num]['example'])
+                        fich_sortie.write(content['studys'][0]['examples'][i-1]['example'])
 
             else:
                 print("Erreur, merci d'indiquer \"TOUT\", \"DIALogue\" ou \"EXEMple\"")
