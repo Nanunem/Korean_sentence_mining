@@ -1,18 +1,19 @@
-from download import Download
-from lecturefichier import LectureFichier
+from create_file import Download
+from parameters_reading import LectureFichier
 
 # Lecture du fichier semaine.txt définissant les dates à traiter
 fichier_dates = LectureFichier("semaine.txt")
-dates, choix, nombre_dialogue = fichier_dates.lecture()
-correspondance = fichier_dates.dates_to_consider(dates)
+dates, choix = fichier_dates.lecture()
 
 # Indication à l'utilisateur des dates traitées
-print("Les dates traitées sont :\n")
+print("Les dates traitées sont :")
 for item in dates:
-    print(f"{item}\n")
-print("Modifiez le fichier \"semaine.txt\" si d'autres dates sont à traitées")
+    print(f"{item}")
+print("\nModifiez le fichier \"semaine.txt\" si d'autres dates sont à traitées\n")
 
 
 # Choix des téléchargements à effectuer
 action = Download(demande=choix)
-action.download(nombre_dialogue, correspondance, dates)
+action.download(dates)
+
+print(f"Téléchargement terminé")
