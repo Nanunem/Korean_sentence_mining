@@ -28,6 +28,8 @@ class Download:
                     audio = Audio(content['studys'][0]['examples'][i-1]['pron_file_url'])
                     audio.recherche_audio(f"{folder_path}/exemple_{dates[num]}_{str(i)}")
                     with open(f"{folder_path}/exemple_{dates[num]}_{str(i)}.txt", "w", encoding="utf-8") as fich_sortie:
+                        fich_sortie.write(content['studys'][0]['title'])
+                        fich_sortie.write("\n")
                         fich_sortie.write(content['studys'][0]['translation'])
                         fich_sortie.write("\n")
                         fich_sortie.write(content['studys'][0]['examples'][i-1]['example'])
@@ -49,6 +51,8 @@ class Download:
                     audio = Audio(content['studys'][0]['examples'][i-1]['pron_file_url'])
                     audio.recherche_audio(f"{folder_path}/exemple_{dates[num]}_{str(i)}")
                     with open(f"{folder_path}/exemple_{dates[num]}_{str(i)}.txt", "w", encoding="utf-8") as fich_sortie:
+                        fich_sortie.write(content['studys'][0]['title'])
+                        fich_sortie.write("\n")
                         fich_sortie.write(content['studys'][0]['translation'])
                         fich_sortie.write("\n")
                         fich_sortie.write(content['studys'][0]['examples'][i-1]['example'])
