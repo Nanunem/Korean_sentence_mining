@@ -24,7 +24,8 @@ class Download:
                     with open(f"{folder_path}/dialogue_{dates[num]}_{str(i)}.txt", "w", encoding="utf-8") as fich_sortie :
                         fich_sortie.write(str(content['sentences'][i-1]['sentence']))
 
-                for i in range(1, 4):
+                nb_exemple = len(content['studys'][0]['examples'])
+                for i in range(1, nb_exemple+1):
                     audio = Audio(content['studys'][0]['examples'][i-1]['pron_file_url'])
                     audio.recherche_audio(f"{folder_path}/exemple_{dates[num]}_{str(i)}")
                     with open(f"{folder_path}/exemple_{dates[num]}_{str(i)}.txt", "w", encoding="utf-8") as fich_sortie:
@@ -36,7 +37,7 @@ class Download:
 
             elif "DIAL" in item.upper():
                 print(f"Téléchargement des dialogues uniquement")
-                # Téléchargement des dialogues (tous les dialogues ou certaines phrases)
+                # Téléchargement des dialogues
                 nb_dialogue = len(content['sentences'])
                 for i in range(1, nb_dialogue+1):
                     audio = Audio(content['sentences'][i-1]['sentence_pron_file'])
@@ -46,8 +47,9 @@ class Download:
 
             elif "EXEM" in item.upper():
                 print(f"Téléchargement des exemples uniquement")
-                # Téléchargement des exemples (tous les exemples ou certaines phrases)
-                for i in range(1, 4):
+                # Téléchargement des exemples
+                nb_exemple = len(content['studys'][0]['examples'])
+                for i in range(1, nb_exemple+1):
                     audio = Audio(content['studys'][0]['examples'][i-1]['pron_file_url'])
                     audio.recherche_audio(f"{folder_path}/exemple_{dates[num]}_{str(i)}")
                     with open(f"{folder_path}/exemple_{dates[num]}_{str(i)}.txt", "w", encoding="utf-8") as fich_sortie:

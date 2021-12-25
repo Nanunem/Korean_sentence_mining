@@ -21,9 +21,8 @@ action.download(dates)
 
 print(f"Téléchargement terminé")
 
-
-aujour = datetime.date.today()
-year, week_num, day_of_week = aujour.isocalendar()
+semaine_demandee = datetime.datetime.strptime(dates[0], '%Y-%m-%d')
+year, week_num, day_of_week = semaine_demandee.isocalendar()
 chemin = "files_created"
 chemin_deck = "decks_created"
 for fichier in os.listdir(chemin):
@@ -31,5 +30,5 @@ for fichier in os.listdir(chemin):
         nom = fichier.removesuffix(".txt")
         card = Card(nom + ".mp3", nom + ".txt")
         card_created = card.crea_carte()
-        deck = Deck(f"{chemin_deck}/deck_semaine_{week_num}.txt")
+        deck = Deck(f"{chemin_deck}/deck_annee_{year}_semaine_{week_num}.txt")
         deck.create_deck(card_created)
