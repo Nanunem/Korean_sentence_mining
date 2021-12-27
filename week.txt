@@ -1,0 +1,4 @@
+# Dates in format YYYY-MM-DD     ALL,DIALOGUE or EXAMPLE
+2021-01-01                       ALL
+2021-01-04                       ALL
+2021-01-05                       ALL

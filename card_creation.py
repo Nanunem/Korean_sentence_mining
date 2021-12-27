@@ -1,48 +1,42 @@
 class Card:
+    """
+    Create the card using the txt file and audio file extracted
+    """
+    def __init__(self, audio_file_name, text_file_name):
+        self.audio_file_name = audio_file_name
+        self.text_file_name = text_file_name
 
-    def __init__(self, nom_fichier_audio, nom_fichier_text):
-        self.nom_fichier_audio = nom_fichier_audio
-        self.nom_fichier_text = nom_fichier_text
+    def card_creation(self):
+        audio_field = "[sound:" + self.audio_file_name + "]"
+        word_definition_field = ""
+        grammar_point_title_field = ""
+        grammar_point_field = ""
+        image_field = ""
 
-    def crea_carte(self):
-        champ_audio = "[sound:"+self.nom_fichier_audio+"]"
-        champ_definition_mots = ""
-        champ_titre_grammaire = ""
-        champ_grammaire = ""
-        champ_image = ""
+        folder_path = "files_created/"
 
-        chemin = "files_created/"
-
-        with open(chemin + self.nom_fichier_text,"r", encoding="utf8") as Entree:
-            content = Entree.readlines()
-            if "dialogue" in self.nom_fichier_text:
-                champ_transcript = content[0].strip()
+        with open(folder_path + self.text_file_name, "r", encoding="utf8") as Input:
+            content = Input.readlines()
+            if "dialogue" in self.text_file_name:
+                transcript_field = content[0].strip()
             else :
-                champ_transcript = content[2].strip()
-                champ_titre_grammaire = content[0].strip()
-                champ_grammaire = content[1].strip()
+                transcript_field = content[2].strip()
+                grammar_point_title_field = content[0].strip()
+                grammar_point_field = content[1].strip()
 
-        carte = champ_audio+"\t"+champ_transcript+"\t"+champ_audio+"\t"+champ_definition_mots+"\t"\
-                +champ_titre_grammaire+"\t"+champ_grammaire+"\t"+champ_image
-        return carte
+        card = audio_field+"\t"+transcript_field+"\t"+audio_field+"\t"+word_definition_field+"\t"\
+                +grammar_point_title_field+"\t"+grammar_point_field+"\t"+image_field
+        return card
 
 class Deck:
+    """
+    Create of the anki deck using the cards
+    """
+    def __init__(self, deck_name):
+        self.deck_name = deck_name
 
-    def __init__(self,nom_deck):
-        self.nom_deck = nom_deck
+    def create_deck(self, card):
+        with open(self.deck_name, "a", encoding="utf8") as DeckFile :
+            DeckFile.write(card + "\n")
 
-    def create_deck(self,carte):
-        with open(self.nom_deck, "a", encoding="utf8") as Sortie :
-            Sortie.write(carte+"\n")
-
-if __name__ == '__main__':
-    import os
-    chemin = "files_created"
-    for fichier in os.listdir(chemin):
-        if fichier.endswith(".txt"):
-            nom = fichier.removesuffix(".txt")
-            card = Card(nom+".mp3", nom+".txt")
-            card_created = card.crea_carte()
-            deck = Deck("test.txt")
-            deck.create_deck(card_created)
 

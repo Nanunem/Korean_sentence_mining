@@ -1,7 +1,0 @@
-# Date en format ANNEE-MOIS-JOUR TOUT/DIALOGUE/EXEMPLE
-2021-11-29                                TOUT
-2021-11-30                                TOUT
-2021-12-01                                TOUT
-2021-12-02                                TOUT
-2021-12-03                                TOUT
-2021-12-04                                TOUT

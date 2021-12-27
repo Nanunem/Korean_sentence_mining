@@ -1,23 +1,20 @@
-from datetime import date
-
-
-class LectureFichier:
+class ReadingParamFile:
     """
-    Object reads the file semaine.txt to get the date,
-    choice of download and number of lines of dialogue
+    Object reads the file week.txt to get the date,
+    choice of download
     """
     def __init__(self, day_mining):
         self.day_mining = day_mining
 
-    def lecture(self):
-        choix = []
-        dates_demande = []
+    def reading(self):
+        choice = []
+        dates_requested = []
 
-        with open(self.day_mining, "r") as Entree:
-            for ligne in Entree:
-                if "#" not in ligne :
-                    ligne = ligne.strip()
-                    ligne = ligne.split()
-                    dates_demande.append(ligne[0].strip())
-                    choix.append(ligne[-1].strip())
-        return dates_demande, choix
+        with open(self.day_mining, "r") as Input:
+            for line in Input:
+                if "#" not in line :
+                    line = line.strip()
+                    line = line.split()
+                    dates_requested.append(line[0].strip())
+                    choice.append(line[-1].strip())
+        return dates_requested, choice
