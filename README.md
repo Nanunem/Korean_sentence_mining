@@ -1,5 +1,5 @@
 # Korean sentence_mining
-Korean sentence mining using the Naver conversation website :
+Korean sentence mining using the Naver daily conversations website (https://learn.dict.naver.com/conversation#/korean-en/20211101):
 - Download of the text and audio of the dialogue and example of the days requested (examples including the linked grammar point)
 - Creation of an Anki deck for the dates requested with the following template :
   - Front :
