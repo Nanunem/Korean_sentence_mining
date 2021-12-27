@@ -16,3 +16,7 @@ Korean sentence mining using the Naver conversation website :
   - the request to create the anki deck or not
   - the dates to consider in the website
   - the request to download both dialogues and examples or just one of two.
+
+Example of created Anki card :
+
+<img width="938" alt="Example" src="https://user-images.githubusercontent.com/57585030/147491485-494266a4-725f-4ba9-8e26-7d7b966839fd.PNG">
