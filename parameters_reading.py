@@ -1,6 +1,6 @@
 class ReadingParamFile:
     """
-    Object reads the file week.txt to get the date,
+    Object reads the file parameters.txt to get the date,
     choice of download
     """
     def __init__(self, day_mining):
