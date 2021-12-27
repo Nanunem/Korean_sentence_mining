@@ -1,4 +1,4 @@
-Create anki deck YES or NO ? ,glerlg
+Create anki deck YES or NO ? YES
 
 # Dates in format YYYY-MM-DD     ALL,DIALOGUE or EXAMPLE
 2021-01-01                       ALL

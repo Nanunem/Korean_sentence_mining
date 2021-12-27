@@ -42,24 +42,32 @@ class Deck:
         with open(self.deck_name, "a", encoding="utf8") as DeckFile :
             DeckFile.write(card + "\n")
 
+def check_deck_folder():
+    deck_folder_path = "decks_created"
+    if os.path.isdir(deck_folder_path):
+        pass
+    else:
+        os.mkdir(deck_folder_path)
+
 def creation(user_answer, first_date_listed):
     user_answer = user_answer.upper()
 
     if "NO" in user_answer:
         print("Anki deck not created")
     elif "YES" in user_answer:
-        semaine_demandee = datetime.datetime.strptime(first_date_listed, '%Y-%m-%d')
-        year, week_num, day_of_week = semaine_demandee.isocalendar()
-        chemin = "files_created"
-        chemin_deck = "decks_created"
+        check_deck_folder()
+        week_of_first_date_request = datetime.datetime.strptime(first_date_listed, '%Y-%m-%d')
+        year, week_num, day_of_week = week_of_first_date_request.isocalendar()
+        files_downloaded_folder_path = "files_created"
+        deck_folder_path = "decks_created"
 
         print("\nCreation of the deck")
-        for fichier in os.listdir(chemin):
+        for fichier in os.listdir(files_downloaded_folder_path):
             if fichier.endswith(".txt"):
                 nom = fichier.removesuffix(".txt")
                 card = Card(nom + ".mp3", nom + ".txt")
                 card_created = card.card_creation()
-                deck = Deck(f"{chemin_deck}/deck_year_{year}_week_{week_num}.txt")
+                deck = Deck(f"{deck_folder_path}/deck_year_{year}_week_{week_num}.txt")
                 deck.create_deck(card_created)
         print(f"\nDeck deck_year_{year}_week_{week_num}.txt created")
     else :

@@ -1,6 +1,6 @@
 from get_audio import Audio
 from get_content import Text
-
+import os
 
 class Download:
     """
@@ -10,7 +10,14 @@ class Download:
     def __init__(self, user_request):
         self.user_request = user_request
 
+    def _check_files_folder(self):
+        if os.path.isdir(self.folder_path):
+            pass
+        else:
+            os.mkdir(self.folder_path)
+
     def _get_dialogue(self, content, date):
+        self._check_files_folder()
         dialogue_number = len(content['sentences'])
         for i in range(1, dialogue_number + 1):
             audio = Audio(content['sentences'][i - 1]['sentence_pron_file'])
@@ -19,6 +26,7 @@ class Download:
                 output_file.write(str(content['sentences'][i - 1]['sentence']))
 
     def _get_example(self, content, date):
+        self._check_files_folder()
         example_number = len(content['studys'][0]['examples'])
         for i in range(1, example_number + 1):
             audio = Audio(content['studys'][0]['examples'][i - 1]['pron_file_url'])
